@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B13798DEF1EF6B5FA69D4D9E /* Pods_LRLPhotoBrowserDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5AB3FFCE51501406161924 /* Pods_LRLPhotoBrowserDemo.framework */; };
+		FC28FF631EF3CD6E00F856CA /* LRLPBActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28FF621EF3CD6E00F856CA /* LRLPBActionSheetView.swift */; };
+		FC2B37561EF54D620049E9AC /* hehe.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FC2B37551EF54D620049E9AC /* hehe.JPG */; };
+		FC2B37581EF555390049E9AC /* placeHolder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC2B37571EF555390049E9AC /* placeHolder.jpg */; };
+		FC6EC6491EF02D1200BB1B56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EC6481EF02D1200BB1B56 /* AppDelegate.swift */; };
+		FC6EC64B1EF02D1200BB1B56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EC64A1EF02D1200BB1B56 /* ViewController.swift */; };
+		FC6EC64E1EF02D1200BB1B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6EC64C1EF02D1200BB1B56 /* Main.storyboard */; };
+		FC6EC6501EF02D1200BB1B56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC6EC64F1EF02D1200BB1B56 /* Assets.xcassets */; };
+		FC6EC6531EF02D1200BB1B56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC6EC6511EF02D1200BB1B56 /* LaunchScreen.storyboard */; };
+		FC6EC65E1EF031C700BB1B56 /* LRLPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EC65B1EF031C700BB1B56 /* LRLPhotoBrowser.swift */; };
+		FC6EC65F1EF031C700BB1B56 /* LRLPBCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EC65C1EF031C700BB1B56 /* LRLPBCollectionView.swift */; };
+		FC6EC6601EF031C700BB1B56 /* LRLPBImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EC65D1EF031C700BB1B56 /* LRLPBImageCell.swift */; };
+		FC75835F1EF11F3A00DD9259 /* LRLPBImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC75835E1EF11F3A00DD9259 /* LRLPBImageView.swift */; };
+		FC7583621EF1214D00DD9259 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7583601EF1214D00DD9259 /* ImageCell.swift */; };
+		FC7583631EF1214D00DD9259 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7583611EF1214D00DD9259 /* ImageCell.xib */; };
+		FC75836C1EF1233600DD9259 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC7583651EF1233600DD9259 /* 1.jpg */; };
+		FC75836D1EF1233600DD9259 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC7583661EF1233600DD9259 /* 2.jpg */; };
+		FC75836E1EF1233600DD9259 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC7583671EF1233600DD9259 /* 3.jpg */; };
+		FC75836F1EF1233600DD9259 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC7583681EF1233600DD9259 /* 4.jpg */; };
+		FC7583701EF1233600DD9259 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC7583691EF1233600DD9259 /* 5.jpg */; };
+		FC7583711EF1233600DD9259 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC75836A1EF1233600DD9259 /* 6.jpg */; };
+		FC7583721EF1233600DD9259 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC75836B1EF1233600DD9259 /* 7.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0D5AB3FFCE51501406161924 /* Pods_LRLPhotoBrowserDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LRLPhotoBrowserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DACEE93DDC818868858075 /* Pods-LRLPhotoBrowserDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LRLPhotoBrowserDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LRLPhotoBrowserDemo/Pods-LRLPhotoBrowserDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DDD2CB986CEDE86A0E93638E /* Pods-LRLPhotoBrowserDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LRLPhotoBrowserDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LRLPhotoBrowserDemo/Pods-LRLPhotoBrowserDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FC28FF621EF3CD6E00F856CA /* LRLPBActionSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBActionSheetView.swift; sourceTree = "<group>"; };
+		FC2B37551EF54D620049E9AC /* hehe.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hehe.JPG; sourceTree = "<group>"; };
+		FC2B37571EF555390049E9AC /* placeHolder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeHolder.jpg; sourceTree = "<group>"; };
+		FC6EC6451EF02D1200BB1B56 /* LRLPhotoBrowserDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LRLPhotoBrowserDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC6EC6481EF02D1200BB1B56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC6EC64A1EF02D1200BB1B56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC6EC64D1EF02D1200BB1B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC6EC64F1EF02D1200BB1B56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC6EC6521EF02D1200BB1B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC6EC6541EF02D1200BB1B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC6EC65B1EF031C700BB1B56 /* LRLPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPhotoBrowser.swift; sourceTree = "<group>"; };
+		FC6EC65C1EF031C700BB1B56 /* LRLPBCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBCollectionView.swift; sourceTree = "<group>"; };
+		FC6EC65D1EF031C700BB1B56 /* LRLPBImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBImageCell.swift; sourceTree = "<group>"; };
+		FC75835E1EF11F3A00DD9259 /* LRLPBImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBImageView.swift; sourceTree = "<group>"; };
+		FC7583601EF1214D00DD9259 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		FC7583611EF1214D00DD9259 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		FC7583651EF1233600DD9259 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		FC7583661EF1233600DD9259 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		FC7583671EF1233600DD9259 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		FC7583681EF1233600DD9259 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		FC7583691EF1233600DD9259 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		FC75836A1EF1233600DD9259 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		FC75836B1EF1233600DD9259 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC6EC6421EF02D1200BB1B56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B13798DEF1EF6B5FA69D4D9E /* Pods_LRLPhotoBrowserDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C8331E5CBC16F8416D86DC2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D5AB3FFCE51501406161924 /* Pods_LRLPhotoBrowserDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9CEB43F15C5DBBDD7A8CDF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1DACEE93DDC818868858075 /* Pods-LRLPhotoBrowserDemo.debug.xcconfig */,
+				DDD2CB986CEDE86A0E93638E /* Pods-LRLPhotoBrowserDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC6EC63C1EF02D1200BB1B56 = {
+			isa = PBXGroup;
+			children = (
+				FC6EC6471EF02D1200BB1B56 /* LRLPhotoBrowserDemo */,
+				FC6EC6461EF02D1200BB1B56 /* Products */,
+				D9CEB43F15C5DBBDD7A8CDF6 /* Pods */,
+				C8331E5CBC16F8416D86DC2C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FC6EC6461EF02D1200BB1B56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC6EC6451EF02D1200BB1B56 /* LRLPhotoBrowserDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC6EC6471EF02D1200BB1B56 /* LRLPhotoBrowserDemo */ = {
+			isa = PBXGroup;
+			children = (
+				FC7583641EF1232F00DD9259 /* TestImage */,
+				FC6EC65A1EF031C700BB1B56 /* Sources */,
+				FC6EC6481EF02D1200BB1B56 /* AppDelegate.swift */,
+				FC6EC64A1EF02D1200BB1B56 /* ViewController.swift */,
+				FC6EC64C1EF02D1200BB1B56 /* Main.storyboard */,
+				FC6EC64F1EF02D1200BB1B56 /* Assets.xcassets */,
+				FC6EC6511EF02D1200BB1B56 /* LaunchScreen.storyboard */,
+				FC6EC6541EF02D1200BB1B56 /* Info.plist */,
+				FC7583601EF1214D00DD9259 /* ImageCell.swift */,
+				FC7583611EF1214D00DD9259 /* ImageCell.xib */,
+			);
+			path = LRLPhotoBrowserDemo;
+			sourceTree = "<group>";
+		};
+		FC6EC65A1EF031C700BB1B56 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FC6EC65B1EF031C700BB1B56 /* LRLPhotoBrowser.swift */,
+				FC6EC65C1EF031C700BB1B56 /* LRLPBCollectionView.swift */,
+				FC6EC65D1EF031C700BB1B56 /* LRLPBImageCell.swift */,
+				FC75835E1EF11F3A00DD9259 /* LRLPBImageView.swift */,
+				FC28FF621EF3CD6E00F856CA /* LRLPBActionSheetView.swift */,
+			);
+			name = Sources;
+			path = ../../Sources;
+			sourceTree = "<group>";
+		};
+		FC7583641EF1232F00DD9259 /* TestImage */ = {
+			isa = PBXGroup;
+			children = (
+				FC2B37571EF555390049E9AC /* placeHolder.jpg */,
+				FC2B37551EF54D620049E9AC /* hehe.JPG */,
+				FC7583651EF1233600DD9259 /* 1.jpg */,
+				FC7583661EF1233600DD9259 /* 2.jpg */,
+				FC7583671EF1233600DD9259 /* 3.jpg */,
+				FC7583681EF1233600DD9259 /* 4.jpg */,
+				FC7583691EF1233600DD9259 /* 5.jpg */,
+				FC75836A1EF1233600DD9259 /* 6.jpg */,
+				FC75836B1EF1233600DD9259 /* 7.jpg */,
+			);
+			path = TestImage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC6EC6441EF02D1200BB1B56 /* LRLPhotoBrowserDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC6EC6571EF02D1200BB1B56 /* Build configuration list for PBXNativeTarget "LRLPhotoBrowserDemo" */;
+			buildPhases = (
+				20FB46FC039EA4689EAF052D /* [CP] Check Pods Manifest.lock */,
+				FC6EC6411EF02D1200BB1B56 /* Sources */,
+				FC6EC6421EF02D1200BB1B56 /* Frameworks */,
+				FC6EC6431EF02D1200BB1B56 /* Resources */,
+				9505267F21DAD23947A02D56 /* [CP] Embed Pods Frameworks */,
+				9B183FCFB758FEB027FB4BA1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LRLPhotoBrowserDemo;
+			productName = LRLPhotoBrowserDemo;
+			productReference = FC6EC6451EF02D1200BB1B56 /* LRLPhotoBrowserDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC6EC63D1EF02D1200BB1B56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = codeWorm;
+				TargetAttributes = {
+					FC6EC6441EF02D1200BB1B56 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 7CD9J62L5G;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FC6EC6401EF02D1200BB1B56 /* Build configuration list for PBXProject "LRLPhotoBrowserDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC6EC63C1EF02D1200BB1B56;
+			productRefGroup = FC6EC6461EF02D1200BB1B56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC6EC6441EF02D1200BB1B56 /* LRLPhotoBrowserDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC6EC6431EF02D1200BB1B56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC2B37581EF555390049E9AC /* placeHolder.jpg in Resources */,
+				FC7583721EF1233600DD9259 /* 7.jpg in Resources */,
+				FC2B37561EF54D620049E9AC /* hehe.JPG in Resources */,
+				FC75836F1EF1233600DD9259 /* 4.jpg in Resources */,
+				FC75836D1EF1233600DD9259 /* 2.jpg in Resources */,
+				FC6EC6531EF02D1200BB1B56 /* LaunchScreen.storyboard in Resources */,
+				FC7583701EF1233600DD9259 /* 5.jpg in Resources */,
+				FC7583711EF1233600DD9259 /* 6.jpg in Resources */,
+				FC7583631EF1214D00DD9259 /* ImageCell.xib in Resources */,
+				FC6EC6501EF02D1200BB1B56 /* Assets.xcassets in Resources */,
+				FC6EC64E1EF02D1200BB1B56 /* Main.storyboard in Resources */,
+				FC75836E1EF1233600DD9259 /* 3.jpg in Resources */,
+				FC75836C1EF1233600DD9259 /* 1.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20FB46FC039EA4689EAF052D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9505267F21DAD23947A02D56 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LRLPhotoBrowserDemo/Pods-LRLPhotoBrowserDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B183FCFB758FEB027FB4BA1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LRLPhotoBrowserDemo/Pods-LRLPhotoBrowserDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC6EC6411EF02D1200BB1B56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC6EC64B1EF02D1200BB1B56 /* ViewController.swift in Sources */,
+				FC6EC6601EF031C700BB1B56 /* LRLPBImageCell.swift in Sources */,
+				FC6EC65E1EF031C700BB1B56 /* LRLPhotoBrowser.swift in Sources */,
+				FC28FF631EF3CD6E00F856CA /* LRLPBActionSheetView.swift in Sources */,
+				FC6EC65F1EF031C700BB1B56 /* LRLPBCollectionView.swift in Sources */,
+				FC6EC6491EF02D1200BB1B56 /* AppDelegate.swift in Sources */,
+				FC7583621EF1214D00DD9259 /* ImageCell.swift in Sources */,
+				FC75835F1EF11F3A00DD9259 /* LRLPBImageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FC6EC64C1EF02D1200BB1B56 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC6EC64D1EF02D1200BB1B56 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FC6EC6511EF02D1200BB1B56 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC6EC6521EF02D1200BB1B56 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC6EC6551EF02D1200BB1B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FC6EC6561EF02D1200BB1B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC6EC6581EF02D1200BB1B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1DACEE93DDC818868858075 /* Pods-LRLPhotoBrowserDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7CD9J62L5G;
+				INFOPLIST_FILE = LRLPhotoBrowserDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = codeWorm.LRLPhotoBrowserDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FC6EC6591EF02D1200BB1B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDD2CB986CEDE86A0E93638E /* Pods-LRLPhotoBrowserDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7CD9J62L5G;
+				INFOPLIST_FILE = LRLPhotoBrowserDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = codeWorm.LRLPhotoBrowserDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC6EC6401EF02D1200BB1B56 /* Build configuration list for PBXProject "LRLPhotoBrowserDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC6EC6551EF02D1200BB1B56 /* Debug */,
+				FC6EC6561EF02D1200BB1B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC6EC6571EF02D1200BB1B56 /* Build configuration list for PBXNativeTarget "LRLPhotoBrowserDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC6EC6581EF02D1200BB1B56 /* Debug */,
+				FC6EC6591EF02D1200BB1B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FC6EC63D1EF02D1200BB1B56 /* Project object */;
+}
