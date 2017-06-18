@@ -65,12 +65,6 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
         super.init(coder: aDecoder)
     }
         
-    func didEndDisplay(cell: UICollectionViewCell) {
-        if let ce = cell as? LRLPBImageCell {
-            ce.outZoom()
-        }
-    }
-    
     @objc func didFinishSaved(image:UIImage, error:Error?, contextInfo: UnsafeMutableRawPointer){
         var result = "保存成功"
         if let _ = error {
@@ -87,7 +81,7 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
     @objc private func longPressAct(longPress: UILongPressGestureRecognizer){
         switch longPress.state {
         case .began:
-            if let currentImage = currentCell?.imageView.image {
+            if let currentImage = currentCell?.showView.image {
                 let sheetView = LRLPBActionSheetView(otherTitle: ["保存到相册"], selectedBlock: { (index) in
                     if index == 0{
                     }else{
@@ -134,9 +128,9 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
                 return
             }
             
-            beginTransform = currCell.imageView.transform
+            beginTransform = currCell.showView.transform
             movingTransform = beginTransform
-            imageBeginFrame = currCell.imageView.frame
+            imageBeginFrame = currCell.showView.frame
         }
         func panning(){
 
@@ -147,12 +141,12 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
             scale = 1.0 - offset.y/curCell.bounds.size.height > 1.0 ? 1.0 : (1.0 - offset.y/curCell.bounds.size.height)
             let movingTransform = beginTransform.translatedBy(x: offset.x - (1 - scale) * (imageBeginFrame.width/2 - begPoint.x), y: offset.y - (1 - scale) * (imageBeginFrame.height/2 - begPoint.y))
             
-            curCell.imageView.transform = movingTransform
+            curCell.showView.transform = movingTransform
             
             if offset.y > 0{
-                curCell.imageView.transform = movingTransform.scaledBy(x: scale, y: scale)
+                curCell.showView.transform = movingTransform.scaledBy(x: scale, y: scale)
             }else{
-                curCell.imageView.transform = movingTransform
+                curCell.showView.transform = movingTransform
             }
             
             let alpha:CGFloat = 0.4
@@ -165,8 +159,8 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
                 dismissBlock?(cCell)
             }else{
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.currentCell?.imageView.transform = self.beginTransform
-                    self.currentCell?.imageView.frame = self.imageBeginFrame
+                    self.currentCell?.showView.transform = self.beginTransform
+                    self.currentCell?.showView.frame = self.imageBeginFrame
                     let color = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
                     setPanBackColor(color: color)
                 })

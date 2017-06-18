@@ -12,8 +12,8 @@ import MBProgressHUD
 
 
 class LRLPBImageView: UIView, UIScrollViewDelegate{
-    private(set) var imageView: UIImageView
-    private var scrollView: UIScrollView
+    var imageView: UIImageView
+    var scrollView: UIScrollView
     var zooming: Bool{
         get{
             return scrollView.zoomScale != scrollView.minimumZoomScale
@@ -22,7 +22,6 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
     var zoomToTop: Bool{
         get{
             if zooming{
-                print(scrollView.contentOffset.y)
                 return scrollView.contentOffset.y <= 0
             }else{
                 return false
@@ -102,7 +101,8 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         inTransform.d = originTransform.d
         self.imageView.transform = transform
     }
-    private func updateUI() {
+    
+    func updateUI() {
         guard image != nil && self.bounds.size.width > 0 && self.bounds.size.height > 0 else {
             return
         }
@@ -111,9 +111,9 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         case .scaleToFill:
             self.updateToScaleToFill()
         case .scaleAspectFit:
-            updateToScaleAspectFit()
+            updateToScaleAspectFit(showSize: image!.size, scale: image!.scale)
         case .scaleAspectFill:
-            updateToScaleAspectFill()
+            updateToScaleAspectFill(showSize: image!.size, scale: image!.scale)
         default:
             break
         }
@@ -129,12 +129,12 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         }
     }
     
-    private func updateToScaleToFill(){
+    func updateToScaleToFill(){
         imageView.frame = self.bounds
     }
     
-    private func updateToScaleAspectFit(){
-        var imageSize = CGSize(width: image!.size.width/image!.scale, height: image!.size.height/image!.scale)
+    func updateToScaleAspectFit(showSize: CGSize, scale: CGFloat){
+        var imageSize = CGSize(width: showSize.width/scale, height: showSize.height/scale)
         let widthdRatio = imageSize.width/bounds.size.width
         let heigthRation = imageSize.height/bounds.size.height
         if (widthdRatio > heigthRation){
@@ -146,8 +146,8 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         imageView.center = CGPoint(x: bounds.size.width/2, y: bounds.size.height/2)
     }
     
-    private func updateToScaleAspectFill(){
-        var imageSize = CGSize(width: image!.size.width/image!.scale, height: image!.size.height/image!.scale)
+    func updateToScaleAspectFill(showSize: CGSize,  scale: CGFloat){
+        var imageSize = CGSize(width: showSize.width/scale, height: showSize.height/scale)
         let widthdRatio = imageSize.width/bounds.size.width
         let heigthRation = imageSize.height/bounds.size.height
         if (widthdRatio > heigthRation){
@@ -159,9 +159,8 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         imageView.center = CGPoint(x: bounds.size.width/2, y: bounds.size.height/2)
     }
     
-    private func commonInit(){
+    func commonInit(){
         scrollView.frame = self.bounds
-        
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
@@ -212,6 +211,13 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         self.image = image;
     }
     
+    func endDisplay() {
+        if zooming {
+            outZoom()
+        }
+        
+    }
+    
     //MARK: zoom
     func setZoomScale(scale: CGFloat) {
         scrollView.zoomScale = scale
@@ -237,7 +243,6 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
             ycenter = scrollView.contentSize.height/2
         }
         imageView.center = CGPoint(x: xcenter, y: ycenter)
-        print("---- \(imageView.frame) -- offset: \(scrollView.contentOffset) \(scrollView.contentSize)")
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

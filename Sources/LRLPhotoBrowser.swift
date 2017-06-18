@@ -13,6 +13,8 @@ public enum LRLPhotoBrowserModel{
     case imageName(String)
     case image(UIImage)
     case imageUrl(ur: String, placeHolder: UIImage?)
+    //    case videoUrl(url: URL, placeHolder: UIImage?)
+
 }
 
 public enum LRLPBCollectionViewPageType {
@@ -125,6 +127,7 @@ public class LRLPhotoBrowser: UIView, LRLPBCollectionDelegate{
         collectionView = LRLPBCollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height), collectionViewLayout: myLayout)
         collectionView?.dismissBlock = dismissCell
         collectionView?.register(LRLPBImageCell.self, forCellWithReuseIdentifier: LRLPBImageCell.reuseIdentifier())
+        collectionView?.register(LRLPBVideoCell.self, forCellWithReuseIdentifier: LRLPBVideoCell.reuseIdentifier())
         collectionView?.panEnable = self.animition
         collectionView?.isPagingEnabled = true
         collectionView?.delegate = delegateHolder
@@ -156,7 +159,7 @@ public class LRLPhotoBrowser: UIView, LRLPBCollectionDelegate{
         guard let s = self else{
             return
         }
-        let imageView = dissMissCell.imageView
+        let imageView = dissMissCell.showView
         func dismiss(){
             imageView.removeFromSuperview()
             s.removeFromSuperview()
@@ -197,16 +200,23 @@ public class LRLPhotoBrowser: UIView, LRLPBCollectionDelegate{
     
     //MARK: UICollectionViewDataSource
      public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LRLPBImageCell.reuseIdentifier(), for: indexPath)
-        if let imageCell = cell as? LRLPBImageCell, let data = self.dataSource?[indexPath.row]{            
-            switch data {
-            case .imageName(let name):
-                imageCell.setData(imageName: name)
-            case .imageUrl(let imageUrl, let placeHolder):
-                imageCell.setData(imageUrl: imageUrl, placeHolder: placeHolder)
-            case .image(let image):
-                imageCell.setData(image: image)
-            }
+        guard let data = dataSource?[indexPath.row] else { return UICollectionViewCell() }
+        let cell:UICollectionViewCell
+        switch data {
+        //case .videoUrl(url: _, placeHolder: _):
+            //cell = collectionView.dequeueReusableCell(withReuseIdentifier: LRLPBVideoCell.reuseIdentifier(), for: indexPath) as! LRLPBVideoCell
+        default:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: LRLPBImageCell.reuseIdentifier(), for: indexPath) as! LRLPBImageCell
+        }
+        switch data {
+        case .imageName(let name):
+            (cell as! LRLPBImageCell).setData(imageName: name)
+        case .imageUrl(let imageUrl, let placeHolder):
+            (cell as! LRLPBImageCell).setData(imageUrl: imageUrl, placeHolder: placeHolder)
+        case .image(let image):
+            (cell as! LRLPBImageCell).setData(image: image)
+        //case .videoUrl(url: let videoUrl, placeHolder: let image):
+            //(cell as! LRLPBVideoCell).setData(videoUrl: videoUrl, placeHolder: image)
         }
         return cell
     }
@@ -223,7 +233,7 @@ public class LRLPhotoBrowser: UIView, LRLPBCollectionDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.collectionView?.didEndDisplay(cell: cell)
+        cell.cellEndDisplay()
     }
     
     //MARK: UICollectionViewDelegateFlowLayout
@@ -246,10 +256,10 @@ public class LRLPhotoBrowser: UIView, LRLPBCollectionDelegate{
                 offset = 1.0
             }
             if self.collectionView?.visibleCells.count ?? 0 == 2 {
-                let cell1 = collectionView?.cellForItem(at: IndexPath(item: Int(i), section: 0)) as? LRLPBImageCell
-                cell1?.changeTheImageViewLocationWithOffset(offset: offset)
-                let cell2 = collectionView?.cellForItem(at: IndexPath(item: Int(j), section: 0)) as? LRLPBImageCell
-                cell2?.changeTheImageViewLocationWithOffset(offset: offset - 1.0)
+                let cell1 = collectionView?.cellForItem(at: IndexPath(item: Int(i), section: 0))
+                cell1?.cellChangeTheImageViewLocationWithOffset(offset: offset)
+                let cell2 = collectionView?.cellForItem(at: IndexPath(item: Int(j), section: 0))
+                cell2?.cellChangeTheImageViewLocationWithOffset(offset: offset - 1.0)
             }
         }
     }
@@ -300,6 +310,8 @@ public class LRLPhotoBrowser: UIView, LRLPBCollectionDelegate{
     }
     
 }
+
+
 
 fileprivate protocol LRLPBCollectionDelegate: NSObjectProtocol{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell

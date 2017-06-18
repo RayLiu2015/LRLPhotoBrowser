@@ -29,6 +29,8 @@
 		FC7583701EF1233600DD9259 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC7583691EF1233600DD9259 /* 5.jpg */; };
 		FC7583711EF1233600DD9259 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC75836A1EF1233600DD9259 /* 6.jpg */; };
 		FC7583721EF1233600DD9259 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC75836B1EF1233600DD9259 /* 7.jpg */; };
+		FC9DC7E51EF62788007A09E3 /* LRLPBVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9DC7E41EF62788007A09E3 /* LRLPBVideoView.swift */; };
+		FC9DC7E71EF62B52007A09E3 /* LRLPBVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9DC7E61EF62B52007A09E3 /* LRLPBVideoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		FC7583691EF1233600DD9259 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		FC75836A1EF1233600DD9259 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		FC75836B1EF1233600DD9259 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		FC9DC7E41EF62788007A09E3 /* LRLPBVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBVideoView.swift; sourceTree = "<group>"; };
+		FC9DC7E61EF62B52007A09E3 /* LRLPBVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBVideoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 				FC6EC65D1EF031C700BB1B56 /* LRLPBImageCell.swift */,
 				FC75835E1EF11F3A00DD9259 /* LRLPBImageView.swift */,
 				FC28FF621EF3CD6E00F856CA /* LRLPBActionSheetView.swift */,
+				FC9DC7E41EF62788007A09E3 /* LRLPBVideoView.swift */,
+				FC9DC7E61EF62B52007A09E3 /* LRLPBVideoCell.swift */,
 			);
 			name = Sources;
 			path = ../../Sources;
@@ -289,9 +295,11 @@
 			files = (
 				FC6EC64B1EF02D1200BB1B56 /* ViewController.swift in Sources */,
 				FC6EC6601EF031C700BB1B56 /* LRLPBImageCell.swift in Sources */,
+				FC9DC7E51EF62788007A09E3 /* LRLPBVideoView.swift in Sources */,
 				FC6EC65E1EF031C700BB1B56 /* LRLPhotoBrowser.swift in Sources */,
 				FC28FF631EF3CD6E00F856CA /* LRLPBActionSheetView.swift in Sources */,
 				FC6EC65F1EF031C700BB1B56 /* LRLPBCollectionView.swift in Sources */,
+				FC9DC7E71EF62B52007A09E3 /* LRLPBVideoCell.swift in Sources */,
 				FC6EC6491EF02D1200BB1B56 /* AppDelegate.swift in Sources */,
 				FC7583621EF1214D00DD9259 /* ImageCell.swift in Sources */,
 				FC75835F1EF11F3A00DD9259 /* LRLPBImageView.swift in Sources */,

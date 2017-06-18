@@ -10,62 +10,96 @@ import UIKit
 import Kingfisher
 import MBProgressHUD
 
+protocol LRLPBContentViewProtocol{
+    associatedtype ViewType: LRLPBImageView
+    var showView: ViewType{set get}
+    func outZoom()
+    func configShowView()
+    func inZoom()
+    func endDisplay()
+    var zooming:Bool{get}
+    var zoomToTop: Bool{get}
+    func changeTheImageViewLocationWithOffset(offset: CGFloat) 
+}
 
-class LRLPBImageCell: UICollectionViewCell {
-    let imageView = LRLPBImageView(frame: CGRect.zero)
+extension LRLPBContentViewProtocol{
+    func outZoom() {
+        showView.outZoom()
+    }
+    
+    func inZoom() {
+        showView.inZoom()
+    }
+    var zooming:Bool{
+        get{
+            return showView.zooming
+        }
+    }
+    var zoomToTop: Bool{
+        get{
+            return showView.zoomToTop
+        }
+    }
+    func configShowView(){
+        
+    }
+    func endDisplay(){
+        showView.endDisplay()
+    }
+}
+
+extension UICollectionViewCell{
+    func cellEndDisplay(){
+        if let imageCell = self as? LRLPBImageCell {
+            imageCell.endDisplay()
+        }else{
+            let videoCell = self as! LRLPBVideoCell
+            videoCell.endDisplay()
+        }
+    }
+    func cellChangeTheImageViewLocationWithOffset(offset: CGFloat) {
+        if let imageCell = self as? LRLPBImageCell {
+            imageCell.changeTheImageViewLocationWithOffset(offset: offset)
+        }else{
+            let videoCell = self as! LRLPBVideoCell
+            videoCell.changeTheImageViewLocationWithOffset(offset: offset)
+        }
+
+    }
+}
+
+class LRLPBImageCell: UICollectionViewCell, LRLPBContentViewProtocol{
+    var showView: LRLPBImageView = LRLPBImageView(frame: CGRect.zero)
+    typealias ViewType = LRLPBImageView
     override init(frame: CGRect) {
         super.init(frame: frame)
-        imageView.frame = self.contentView.bounds
-        self.contentView.addSubview(imageView)
-
+        showView.frame = self.contentView.bounds
+        self.contentView.addSubview(showView)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        
-    }
-    
     func setData(imageUrl: String, placeHolder: UIImage?){
         let url = URL(string: imageUrl)
-        imageView.setImage(with: url, placeholder:placeHolder)
+        showView.setImage(with: url, placeholder:placeHolder)
     }
     
     func setData(imageName: String) {
-        imageView.setImage(image: UIImage(named: imageName) ?? UIImage(named: "placeHolder.jpg")!)
+        showView.setImage(image: UIImage(named: imageName) ?? UIImage(named: "placeHolder.jpg")!)
     }
     func setData(image: UIImage) {
-        imageView.setImage(image: image)
+        showView.setImage(image: image)
     }
 
     func changeTheImageViewLocationWithOffset(offset: CGFloat) {
         if !zooming{
-            imageView.setImageTransform(transform: CGAffineTransform(translationX: self.bounds.width * offset - 150.0 * offset, y: 0))
+            showView.setImageTransform(transform: CGAffineTransform(translationX: self.bounds.width * offset - 150.0 * offset, y: 0))
         }
     }
-    static func reuseIdentifier() -> String{
+    class func reuseIdentifier() -> String{
         return "LRLPBImageCell"
-    }
-    
-    func outZoom() {
-        imageView.outZoom()
-    }
-    
-    
-    func inZoom() {
-        imageView.inZoom()
-    }
-    var zooming:Bool{
-        get{
-            return imageView.zooming
-        }
-    }
-    var zoomToTop: Bool{
-        get{
-            return imageView.zoomToTop
-        }
     }
     
 }

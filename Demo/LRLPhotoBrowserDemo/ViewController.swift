@@ -24,6 +24,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let image = UIImage(named: "hehe.JPG"){
             dataSource.append(LRLPhotoBrowserModel.image(image))
         }
+        
+        //dataSource.append(LRLPhotoBrowserModel.videoUrl(url: URL(string: "http://baobab.wdjcdn.com/1463028607774b.mp4")!, placeHolder: UIImage(named: "placeHolder.jpg")))
 
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 2.0
@@ -43,6 +45,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.imageView.kf.setImage(with: URL(string: imageUrl) , placeholder: placeHolder)
         case .image(let image):
             cell.imageView.image = image
+        default:
+            break
         }
         return cell
     }
