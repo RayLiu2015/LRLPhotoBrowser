@@ -62,6 +62,12 @@ class LRLPBImageCell: UICollectionViewCell {
             return imageView.zooming
         }
     }
+    var zoomToTop: Bool{
+        get{
+            return imageView.zoomToTop
+        }
+    }
+    
 }
 
 

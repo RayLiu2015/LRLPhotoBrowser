@@ -19,6 +19,16 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
             return scrollView.zoomScale != scrollView.minimumZoomScale
         }
     }
+    var zoomToTop: Bool{
+        get{
+            if zooming{
+                print(scrollView.contentOffset.y)
+                return scrollView.contentOffset.y <= 0
+            }else{
+                return false
+            }
+        }
+    }
 
     var image: UIImage?{
         set{
@@ -151,6 +161,7 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
     
     private func commonInit(){
         scrollView.frame = self.bounds
+        
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
@@ -170,8 +181,8 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
                          options: KingfisherOptionsInfo? = nil,
                          progressBlock: DownloadProgressBlock? = nil,
                          completionHandler: CompletionHandler? = nil) -> RetrieveImageTask?{
-//        self.image = placeholder
         guard let inResource = resource else {
+            image = placeholder
             return nil
         }
         
@@ -179,6 +190,8 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         if !KingfisherManager.shared.cache.isImageCached(forKey: inResource.cacheKey).cached{
             progress = MBProgressHUD.showAdded(to: self, animated: true)
             progress?.mode = .annularDeterminate
+        }else{
+            image = placeholder
         }
         return imageView.kf.setImage(with: resource, placeholder: placeholder, options: options, progressBlock:{
             (receivedSize, totalSize) in
@@ -224,6 +237,7 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
             ycenter = scrollView.contentSize.height/2
         }
         imageView.center = CGPoint(x: xcenter, y: ycenter)
+        print("---- \(imageView.frame) -- offset: \(scrollView.contentOffset) \(scrollView.contentSize)")
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

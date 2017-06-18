@@ -215,12 +215,22 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
         if pan == gestureRecognizer{
             let velocity = pan!.velocity(in: self)
             if abs(velocity.x) >= abs(velocity.y){
-                return false
+               return false
             }
             return true
         }
         return true
     }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let cell = currentCell, let p = pan, p === gestureRecognizer{
+            if cell.zoomToTop{
+                return true
+            }
+        }
+        return false
+    }
+    
     //MARK: UIScrollViewDelegate
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         
