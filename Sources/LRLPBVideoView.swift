@@ -123,10 +123,10 @@ class LRLPBVideoView: LRLPBImageView {
         }
         switch inKeyPath {
         case statuKey:
-            print("statuKey")
+            LRLDLog("statuKey")
             switch item.status {
             case .readyToPlay:
-                print("readyToPlay")
+                LRLDLog("readyToPlay")
             case .failed:
                 fallthrough
             case .unknown:
@@ -135,21 +135,21 @@ class LRLPBVideoView: LRLPBImageView {
                  errorAlert.mode = .text
                  errorAlert.label.text = "播放失败"
                  errorAlert.hide(animated: true, afterDelay: 1.0)
-                print("unknown || error")
+                LRLDLog("unknown || error")
             }
         case keepUpKey:
-            print("keepUpKey")
+            LRLDLog("keepUpKey")
             if item.isPlaybackLikelyToKeepUp {
                 progress?.hide(animated: true)
             }
         case bufferEmptyKey:
-            print("bufferEmptyKey")
+            LRLDLog("bufferEmptyKey")
             progress?.show(animated: true)
         case bufferFullKey:
-            print("bufferFullKey")
+            LRLDLog("bufferFullKey")
             progress?.hide(animated: true)
         case presentationSizeKey:
-            print("presentationSizeKey")
+            LRLDLog("presentationSizeKey")
             self.videoSize = item.presentationSize
             UIView.animate(withDuration: 0.3, animations: {
                 self.updateUI()
