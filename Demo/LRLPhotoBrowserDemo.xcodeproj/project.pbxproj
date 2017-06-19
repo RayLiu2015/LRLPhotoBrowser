@@ -29,10 +29,8 @@
 		FC7583711EF1233600DD9259 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC75836A1EF1233600DD9259 /* 6.jpg */; };
 		FC7583721EF1233600DD9259 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC75836B1EF1233600DD9259 /* 7.jpg */; };
 		FC80962C1EF8168B006AFDEB /* LRLPBTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80962B1EF8168B006AFDEB /* LRLPBTool.swift */; };
+		FC80962E1EF823CD006AFDEB /* LRLPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC80962D1EF823CD006AFDEB /* LRLPhotoBrowser.bundle */; };
 		FC83CA491EF7BCA800A7DB9C /* LRLPBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC83CA481EF7BCA800A7DB9C /* LRLPBCell.swift */; };
-		FC83CA541EF7BD4400A7DB9C /* btn_play.png in Resources */ = {isa = PBXBuildFile; fileRef = FC83CA511EF7BD4400A7DB9C /* btn_play.png */; };
-		FC83CA551EF7BD4400A7DB9C /* btn_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC83CA521EF7BD4400A7DB9C /* btn_play@2x.png */; };
-		FC83CA561EF7BD4400A7DB9C /* btn_play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC83CA531EF7BD4400A7DB9C /* btn_play@3x.png */; };
 		FC9DC7E51EF62788007A09E3 /* LRLPBVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9DC7E41EF62788007A09E3 /* LRLPBVideoView.swift */; };
 		FCB7A8811EF77ED9004E8163 /* videoPlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB7A8801EF77ED9004E8163 /* videoPlaceHolder.png */; };
 /* End PBXBuildFile section */
@@ -64,10 +62,8 @@
 		FC75836A1EF1233600DD9259 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		FC75836B1EF1233600DD9259 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		FC80962B1EF8168B006AFDEB /* LRLPBTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBTool.swift; sourceTree = "<group>"; };
+		FC80962D1EF823CD006AFDEB /* LRLPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LRLPhotoBrowser.bundle; sourceTree = "<group>"; };
 		FC83CA481EF7BCA800A7DB9C /* LRLPBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBCell.swift; sourceTree = "<group>"; };
-		FC83CA511EF7BD4400A7DB9C /* btn_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_play.png; sourceTree = "<group>"; };
-		FC83CA521EF7BD4400A7DB9C /* btn_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_play@2x.png"; sourceTree = "<group>"; };
-		FC83CA531EF7BD4400A7DB9C /* btn_play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_play@3x.png"; sourceTree = "<group>"; };
 		FC9DC7E41EF62788007A09E3 /* LRLPBVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRLPBVideoView.swift; sourceTree = "<group>"; };
 		FCB7A8801EF77ED9004E8163 /* videoPlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videoPlaceHolder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,7 +135,7 @@
 		FC6EC65A1EF031C700BB1B56 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FC83CA501EF7BD4400A7DB9C /* ImageSource */,
+				FC80962D1EF823CD006AFDEB /* LRLPhotoBrowser.bundle */,
 				FC6EC65B1EF031C700BB1B56 /* LRLPhotoBrowser.swift */,
 				FC6EC65C1EF031C700BB1B56 /* LRLPBCollectionView.swift */,
 				FC75835E1EF11F3A00DD9259 /* LRLPBImageView.swift */,
@@ -167,16 +163,6 @@
 				FC75836B1EF1233600DD9259 /* 7.jpg */,
 			);
 			path = TestImage;
-			sourceTree = "<group>";
-		};
-		FC83CA501EF7BD4400A7DB9C /* ImageSource */ = {
-			isa = PBXGroup;
-			children = (
-				FC83CA511EF7BD4400A7DB9C /* btn_play.png */,
-				FC83CA521EF7BD4400A7DB9C /* btn_play@2x.png */,
-				FC83CA531EF7BD4400A7DB9C /* btn_play@3x.png */,
-			);
-			path = ImageSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,15 +232,13 @@
 				FC7583721EF1233600DD9259 /* 7.jpg in Resources */,
 				FC2B37561EF54D620049E9AC /* hehe.JPG in Resources */,
 				FC75836F1EF1233600DD9259 /* 4.jpg in Resources */,
-				FC83CA561EF7BD4400A7DB9C /* btn_play@3x.png in Resources */,
 				FCB7A8811EF77ED9004E8163 /* videoPlaceHolder.png in Resources */,
-				FC83CA551EF7BD4400A7DB9C /* btn_play@2x.png in Resources */,
+				FC80962E1EF823CD006AFDEB /* LRLPhotoBrowser.bundle in Resources */,
 				FC75836D1EF1233600DD9259 /* 2.jpg in Resources */,
 				FC6EC6531EF02D1200BB1B56 /* LaunchScreen.storyboard in Resources */,
 				FC7583701EF1233600DD9259 /* 5.jpg in Resources */,
 				FC7583711EF1233600DD9259 /* 6.jpg in Resources */,
 				FC7583631EF1214D00DD9259 /* ImageCell.xib in Resources */,
-				FC83CA541EF7BD4400A7DB9C /* btn_play.png in Resources */,
 				FC6EC6501EF02D1200BB1B56 /* Assets.xcassets in Resources */,
 				FC6EC64E1EF02D1200BB1B56 /* Main.storyboard in Resources */,
 				FC75836E1EF1233600DD9259 /* 3.jpg in Resources */,

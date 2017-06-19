@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LRLPhotoBrowser"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A simple iOS photo and video browser"
   s.license      = "MIT"
   s.description  = <<-DESC
