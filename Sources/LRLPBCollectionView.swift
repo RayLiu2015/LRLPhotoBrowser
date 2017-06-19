@@ -31,9 +31,9 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
     var pan: UIPanGestureRecognizer?
     var beginPoint: CGPoint?
     var movePoint: CGPoint?
-    var currentCell: LRLPBImageCell?{
+     var currentCell: LRLPBCell?{
         get{
-            return self.visibleCells.first as? LRLPBImageCell
+            return self.visibleCells.first as? LRLPBCell
         }
     }
     var beginTransform: CGAffineTransform = CGAffineTransform()
@@ -43,7 +43,7 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
         )}()
     var scale: CGFloat = 1.0
     
-    var dismissBlock: ((_ imageView: LRLPBImageCell) -> ())?
+    var dismissBlock: ((_ imageView: LRLPBCell) -> ())?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -160,7 +160,7 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
             }else{
                 UIView.animate(withDuration: 0.2, animations: {
                     self.currentCell?.showView.transform = self.beginTransform
-                    self.currentCell?.showView.frame = self.imageBeginFrame
+//                    self.currentCell?.showView.frame = self.imageBeginFrame
                     let color = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
                     setPanBackColor(color: color)
                 })

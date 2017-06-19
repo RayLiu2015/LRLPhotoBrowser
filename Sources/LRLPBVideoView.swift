@@ -12,7 +12,6 @@ import MBProgressHUD
 
 class LRLPBVideoView: LRLPBImageView {
     let statuKey            = "status"
-    let loadTimeKey         = "loadedTimeRanges"
     let keepUpKey           = "playbackLikelyToKeepUp"
     let bufferEmptyKey      = "playbackBufferEmpty"
     let bufferFullKey       = "playbackBufferFull"
@@ -20,41 +19,163 @@ class LRLPBVideoView: LRLPBImageView {
     var playerLayer: AVPlayerLayer = AVPlayerLayer()
     var playerUrl: URL?
     var videoSize: CGSize?
-    lazy var player: AVPlayer = {
-        let p = AVPlayer(playerItem: self.playerItem)
-        p.actionAtItemEnd = .advance
-        return p
+    
+    private lazy var startButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: self.bounds.size.width/2 - 25, y:self.bounds.size.height/2 - 25, width: 50, height: 50))
+        button.setImage(UIImage(named: "btn_play"), for: .normal)
+        button.addTarget(self, action: #selector(play), for: .touchUpInside)
+        return button
     }()
-    lazy var playerItem: AVPlayerItem? = {
-        if let url = self.playerUrl{
-            let item = AVPlayerItem(url: url)
-            item.addObserver(self, forKeyPath: self.statuKey, options: [.new, .old], context: nil)
-            item.addObserver(self, forKeyPath: self.loadTimeKey, options: [.new, .old], context: nil)
-            item.addObserver(self, forKeyPath: self.keepUpKey, options: [.new, .old], context: nil)
-            item.addObserver(self, forKeyPath: self.bufferEmptyKey, options: [.new, .old], context: nil)
-            item.addObserver(self, forKeyPath: self.bufferFullKey, options: [.new, .old], context: nil)
-            item.addObserver(self, forKeyPath: self.presentationSizeKey, options: [.new, .old], context: nil)
-            return item
-        }else{
-            return nil
+    
+    private var _player: AVPlayer?
+    var player: AVPlayer?{
+        get{
+            if let inPlayer = _player{
+                return inPlayer
+            }else{
+                _player = AVPlayer(playerItem: playerItem)
+                return _player
+            }
         }
-    }()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+        set{
+            _player = newValue
+        }
+    }
+    private var _playerItem: AVPlayerItem?
+    var playerItem: AVPlayerItem?{
+        get{
+            if let inPlayerItem = _playerItem{
+                return inPlayerItem
+            }else{
+                if let url = self.playerUrl{
+                    _playerItem = AVPlayerItem(url: url)
+                    _playerItem?.addObserver(self, forKeyPath: self.statuKey, options: [.new, .old], context: nil)
+                    _playerItem?.addObserver(self, forKeyPath: self.keepUpKey, options: [.new, .old], context: nil)
+                    _playerItem?.addObserver(self, forKeyPath: self.bufferEmptyKey, options: [.new, .old], context: nil)
+                    _playerItem?.addObserver(self, forKeyPath: self.bufferFullKey, options: [.new, .old], context: nil)
+                    _playerItem?.addObserver(self, forKeyPath: self.presentationSizeKey, options: [.new, .old], context: nil)
+                    return _playerItem
+                }else{
+                    return nil
+                }
+            }
+        }
+        set{
+            if newValue == nil{
+                _playerItem?.removeObserver(self, forKeyPath: statuKey)
+                _playerItem?.removeObserver(self, forKeyPath: keepUpKey)
+                _playerItem?.removeObserver(self, forKeyPath: bufferEmptyKey)
+                _playerItem?.removeObserver(self, forKeyPath: bufferFullKey)
+                _playerItem?.removeObserver(self, forKeyPath: presentationSizeKey)
+            }
+            _playerItem = newValue
+        }
         
-        configUI()
+        
     }
     
-    func configUI(){
-        let button = UIButton(frame: CGRect(x: bounds.size.width/2 - 25, y: bounds.size.height/2 - 25, width: 50, height: 50))
-        button.backgroundColor = UIColor.red
-        button.addTarget(self, action: #selector(play), for: .touchUpInside)
-        addSubview(button)
+    override var frame: CGRect{
+        set{
+            super.frame = newValue
+            scrollView.frame = super.bounds
+            startButton.frame = CGRect(x: self.bounds.size.width/2 - 25, y:self.bounds.size.height/2 - 25, width: 50, height: 50)
+            updateUI()
+        }
+        get{
+            return super.frame
+        }
+    }
+    
+    deinit {
+        player?.pause()
+        player = nil
+        playerItem = nil
+        NotificationCenter.default.removeObserver(self)
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.addSubview(startButton)
+        NotificationCenter.default.addObserver(self, selector: #selector(willInBackground), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didInforeground), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    func setVideoUrlStr(url: URL, palceHolder: UIImage?) {
+        image = palceHolder
+        playerUrl = url
+    }
+    
+    var progress: MBProgressHUD?
+    func play() {
+        playerLayer.player = player
+        playerLayer.frame = self.imageView.bounds
+        imageView.layer.addSublayer(playerLayer)
+        progress = MBProgressHUD.showAdded(to: self, animated: true)
+        progress?.removeFromSuperViewOnHide = false
+        progress?.mode = .indeterminate
+        progress?.show(animated: true)
+        startButton.isHidden = true
+        player?.play()
+        
+    }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let inKeyPath = keyPath, let item = playerItem else {
+            return
+        }
+        switch inKeyPath {
+        case statuKey:
+            print("statuKey")
+            switch item.status {
+            case .readyToPlay:
+                print("readyToPlay")
+            case .failed:
+                fallthrough
+            case .unknown:
+                 progress?.hide(animated: true)
+                 let errorAlert = MBProgressHUD.showAdded(to: self, animated: true)
+                 errorAlert.mode = .text
+                 errorAlert.label.text = "播放失败"
+                 errorAlert.hide(animated: true, afterDelay: 1.0)
+                print("unknown || error")
+            }
+        case keepUpKey:
+            print("keepUpKey")
+            if item.isPlaybackLikelyToKeepUp {
+                progress?.hide(animated: true)
+            }
+        case bufferEmptyKey:
+            print("bufferEmptyKey")
+            progress?.show(animated: true)
+        case bufferFullKey:
+            print("bufferFullKey")
+            progress?.hide(animated: true)
+        case presentationSizeKey:
+            print("presentationSizeKey")
+            self.videoSize = item.presentationSize
+            UIView.animate(withDuration: 0.3, animations: {
+                self.updateUI()
+            })
+        default:
+            break
+        }
+    }
+    
+    override func endDisplay() {
+        if zooming{
+            outZoom()
+        }
+        progress?.hide(animated: true)
+        startButton.isHidden = false
+        player?.pause()
+        playerLayer.player = nil
+        player = nil        
+        playerItem = nil
     }
     
     override func updateUI() {
-        guard image != nil && self.bounds.size.width > 0 && self.bounds.size.height > 0 else {
-            return
+        if self.videoSize == nil{
+            guard image != nil && self.bounds.size.width > 0 && self.bounds.size.height > 0 else {
+                return
+            }
         }
         
         switch self.contentMode {
@@ -87,62 +208,11 @@ class LRLPBVideoView: LRLPBImageView {
         }
     }
     
-    func setVideoUrlStr(url: URL, palceHolder: UIImage?) {
-        image = palceHolder
-        playerUrl = url
+    func willInBackground() {
+        player?.pause()
     }
-    var progress: MBProgressHUD?
-    
-    func play() {
-        playerLayer.player = player
-        playerLayer.frame = self.imageView.bounds
-        imageView.layer.addSublayer(playerLayer)
-        progress = MBProgressHUD.showAdded(to: self, animated: true)
-        progress?.mode = .indeterminate
-        player.play()
-        
-    }
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        guard let inKeyPath = keyPath, let item = playerItem else {
-            return
-        }
-        switch inKeyPath {
-        case statuKey:
-            print("statuKey")
-            switch item.status {
-            case .readyToPlay:
-                print("readyToPlay")
-                progress?.hide(animated: true)
-            case .failed:
-                progress?.hide(animated: true)
-                print("failed")
-            case .unknown:
-                progress?.hide(animated: true)
-                print("unknown")
-            }
-        case loadTimeKey:
-            print("loadTimeKey")
-        case keepUpKey:
-            print("keepUpKey")
-        case bufferEmptyKey:
-            print("bufferEmptyKey")
-        case bufferFullKey:
-            print("bufferFullKey")
-        case presentationSizeKey:
-            print("presentationSizeKey")
-            videoSize = item.presentationSize
-            updateUI()
-        default:
-            print("statuKey")            
-        }
-    }
-    
-    
-    override func endDisplay() {
-        if zooming{
-            outZoom()
-        }
-        
+    func didInforeground() {
+        player?.play()
     }
     
     required init?(coder aDecoder: NSCoder) {

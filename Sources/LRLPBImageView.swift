@@ -54,6 +54,7 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         set{
             super.frame = newValue
             scrollView.frame = super.bounds
+            scrollView.contentSize = newValue.size
             updateUI()
         }
         get{
@@ -142,8 +143,13 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         }else{
             imageSize = CGSize(width: imageSize.width/heigthRation, height: imageSize.height/heigthRation)
         }
+        let contentSize = zooming ? scrollView.contentSize : bounds.size
+        
+        
+        print(NSStringFromCGSize(scrollView.contentSize))
+        print(NSStringFromCGSize(bounds.size))
         imageView.bounds = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
-        imageView.center = CGPoint(x: bounds.size.width/2, y: bounds.size.height/2)
+        imageView.center = CGPoint(x: contentSize.width/2, y: contentSize.height/2)
     }
     
     func updateToScaleAspectFill(showSize: CGSize,  scale: CGFloat){
@@ -155,8 +161,13 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         }else{
             imageSize = CGSize(width: imageSize.width/widthdRatio, height: imageSize.height/widthdRatio)
         }
+        print(NSStringFromCGSize(scrollView.contentSize))
+        print(NSStringFromCGRect(bounds))
+        print(NSStringFromCGRect(frame))
+
+        let contentSize = zooming ? scrollView.contentSize : bounds.size
         imageView.bounds = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
-        imageView.center = CGPoint(x: bounds.size.width/2, y: bounds.size.height/2)
+        imageView.center = CGPoint(x: contentSize.width/2, y: contentSize.height/2)
     }
     
     func commonInit(){
@@ -180,8 +191,8 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
                          options: KingfisherOptionsInfo? = nil,
                          progressBlock: DownloadProgressBlock? = nil,
                          completionHandler: CompletionHandler? = nil) -> RetrieveImageTask?{
+        image = placeholder
         guard let inResource = resource else {
-            image = placeholder
             return nil
         }
         
@@ -190,7 +201,6 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
             progress = MBProgressHUD.showAdded(to: self, animated: true)
             progress?.mode = .annularDeterminate
         }else{
-            image = placeholder
         }
         return imageView.kf.setImage(with: resource, placeholder: placeholder, options: options, progressBlock:{
             (receivedSize, totalSize) in
