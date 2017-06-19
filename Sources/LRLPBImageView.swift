@@ -53,7 +53,7 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
     override var frame: CGRect{
         set{
             super.frame = newValue
-            scrollView.frame = super.bounds
+            scrollView.frame = CGRect(x: 0, y: 0, width: newValue.size.width, height: newValue.size.height)
             scrollView.contentSize = newValue.size
             updateUI()
         }
@@ -143,11 +143,9 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         }else{
             imageSize = CGSize(width: imageSize.width/heigthRation, height: imageSize.height/heigthRation)
         }
-        let contentSize = zooming ? scrollView.contentSize : bounds.size
-        
-        
-        print(NSStringFromCGSize(scrollView.contentSize))
-        print(NSStringFromCGSize(bounds.size))
+//        let contentSize = zooming ? scrollView.contentSize : bounds.size
+        let contentSize = scrollView.contentSize
+
         imageView.bounds = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
         imageView.center = CGPoint(x: contentSize.width/2, y: contentSize.height/2)
     }
@@ -161,13 +159,12 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         }else{
             imageSize = CGSize(width: imageSize.width/widthdRatio, height: imageSize.height/widthdRatio)
         }
-        print(NSStringFromCGSize(scrollView.contentSize))
-        print(NSStringFromCGRect(bounds))
-        print(NSStringFromCGRect(frame))
-
-        let contentSize = zooming ? scrollView.contentSize : bounds.size
+  
+//        let contentSize = zooming ? scrollView.contentSize : bounds.size
+        let contentSize = scrollView.contentSize
         imageView.bounds = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
         imageView.center = CGPoint(x: contentSize.width/2, y: contentSize.height/2)
+ 
     }
     
     func commonInit(){
@@ -191,8 +188,8 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
                          options: KingfisherOptionsInfo? = nil,
                          progressBlock: DownloadProgressBlock? = nil,
                          completionHandler: CompletionHandler? = nil) -> RetrieveImageTask?{
-        image = placeholder
         guard let inResource = resource else {
+            image = placeholder
             return nil
         }
         
@@ -200,6 +197,7 @@ class LRLPBImageView: UIView, UIScrollViewDelegate{
         if !KingfisherManager.shared.cache.isImageCached(forKey: inResource.cacheKey).cached{
             progress = MBProgressHUD.showAdded(to: self, animated: true)
             progress?.mode = .annularDeterminate
+            image = placeholder
         }else{
         }
         return imageView.kf.setImage(with: resource, placeholder: placeholder, options: options, progressBlock:{

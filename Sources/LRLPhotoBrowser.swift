@@ -170,6 +170,7 @@ public class LRLPhotoBrowser: UIView, LRLPBCollectionDelegate{
         if let localView = UIApplication.shared.keyWindow, let loc = s.selectedFrame, s.animition{
             localView.addSubview(imageView)
             UIView.animate(withDuration: 0.3, animations: {
+                imageView.transform = CGAffineTransform.identity
                 imageView.setZoomScale(scale: 1.0)
                 imageView.contentMode = UIViewContentMode.scaleAspectFill
                 imageView.frame = loc

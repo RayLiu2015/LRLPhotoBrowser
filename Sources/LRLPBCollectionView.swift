@@ -160,7 +160,6 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
             }else{
                 UIView.animate(withDuration: 0.2, animations: {
                     self.currentCell?.showView.transform = self.beginTransform
-//                    self.currentCell?.showView.frame = self.imageBeginFrame
                     let color = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
                     setPanBackColor(color: color)
                 })
