@@ -15,8 +15,9 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/codeWorm2015/LRLPhotoBrowser"
   s.author             = { "codeWorm" => "liu_rui_long@163.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/codeWorm2015/LRLPhotoBrowser.git", :tag => "1.0.0" }
-  s.source_files  = "Sources/*"
+  s.source       = { :git => "https://github.com/codeWorm2015/LRLPhotoBrowser.git", :tag => "1.0.1" }
+  s.source_files  = "Sources/*.{swift}"
+  s.resources = "Sources/*.{png,xib,nib,bundle}"
   s.exclude_files = "Classes/Exclude"
 
   s.dependency 'Kingfisher', '~> 3.10.2'
