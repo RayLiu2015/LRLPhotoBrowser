@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LRLPhotoBrowser"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A simple iOS photo and video browser"
   s.license      = "MIT"
   s.description  = <<-DESC
@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/codeWorm2015/LRLPhotoBrowser"
-  s.author             = { "codeWorm" => "liu_rui_long@163.com" }
+  s.author             = { "codeWorm" => "codeWorm@foxmail.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/codeWorm2015/LRLPhotoBrowser.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/codeWorm2015/LRLPhotoBrowser.git", :tag => "1.0.2" }
   s.source_files  = "Sources/*.{swift}"
   s.resources = "Sources/*.{png,xib,nib,bundle}"
   s.exclude_files = "Classes/Exclude"

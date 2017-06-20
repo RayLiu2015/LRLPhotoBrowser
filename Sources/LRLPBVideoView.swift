@@ -21,7 +21,7 @@ class LRLPBVideoView: LRLPBImageView {
     var videoSize: CGSize?
     
     private lazy var startButton: UIButton = {
-        let img = UIImage.bundleImage(named: "btn_play@3x")
+        let img = LRLPBAssetManager.getImage(named: "btn_play")
         let button = UIButton(frame: CGRect(x: self.bounds.size.width/2 - 25, y:self.bounds.size.height/2 - 25, width: 50, height: 50))
         button.setImage(img, for: .normal)
         button.addTarget(self, action: #selector(play), for: .touchUpInside)

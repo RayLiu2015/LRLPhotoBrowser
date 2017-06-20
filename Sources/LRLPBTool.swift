@@ -12,16 +12,14 @@ func LRLDLog(_ content: @autoclosure () -> Any){
 //    print(content())
 }
 
-
-extension UIImage{
-    static func bundleImage(named:String) -> UIImage?{
-        if let bundlePath = Bundle.main.path(forResource: "LRLPhotoBrowser", ofType: "bundle"){
+class LRLPBAssetManager {
+    static func getImage(named: String) -> UIImage?{
+        if let bundlePath = Bundle(for: self).path(forResource: "LRLPhotoBrowser", ofType: "bundle"){
             let bundle = Bundle(path: bundlePath)
             let image = UIImage(contentsOfFile: bundle?.path(forResource: named, ofType: "png") ?? "")
             return image
         }else{
             return nil
         }
-        
     }
 }
