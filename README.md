@@ -1,1 +1,7 @@
 # LRLPhotoBrowser
+
+## CocoaPods
+
+`
+    pod 'LRLPhotoBrowser'
+`
