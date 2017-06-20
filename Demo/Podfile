@@ -4,5 +4,6 @@ use_frameworks!
 target 'LRLPhotoBrowserDemo' do
 pod 'Kingfisher'
 pod 'SnapKit'
+pod 'LRLPhotoBrowser', :path => '..'
 pod 'MBProgressHUD'
 end

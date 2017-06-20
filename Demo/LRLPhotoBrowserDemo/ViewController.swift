@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import LRLPhotoBrowser
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, LRLPhotoBrowserDelegate{
     var dataSource:[LRLPhotoBrowserModel] = []
