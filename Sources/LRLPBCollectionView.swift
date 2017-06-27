@@ -226,7 +226,6 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         //是否使用 第一个手势而使第二个手势失效
         if let cell = currentCell, let p = pan, p === gestureRecognizer{
-            let translation = p.translation(in: p.view!)
             let velocity = p.velocity(in: self)
             if velocity.y > 0{
                 return false
