@@ -207,6 +207,14 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool{
         if pan == gestureRecognizer{
             let velocity = pan!.velocity(in: self)
+            if let cell = currentCell {
+                if cell.zoomToTop{
+                    if velocity.y < 0{
+                        return false
+                    }
+                }
+            }
+            
             if abs(velocity.x) >= abs(velocity.y){
                return false
             }
@@ -216,7 +224,14 @@ class LRLPBCollectionView: UICollectionView, UIGestureRecognizerDelegate, UIScro
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        //是否使用 第一个手势而使第二个手势失效
         if let cell = currentCell, let p = pan, p === gestureRecognizer{
+            let translation = p.translation(in: p.view!)
+            let velocity = p.velocity(in: self)
+            if velocity.y > 0{
+                return false
+            }
+            
             if cell.zoomToTop{
                 return true
             }
